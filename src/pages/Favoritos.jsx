@@ -1,5 +1,6 @@
 import { useState, useEffect} from "react"
 import { Link } from "react-router-dom"
+import "../style/favoritos.css"
 function Favoritos(){
 
     const [filmes, setFilmes] = useState([])
@@ -11,10 +12,13 @@ function Favoritos(){
     }, [])
 
     function excluirFilme(id){
+        
         // pega apenas os diferentes da lista
         // diferente do find que pega só o primeiro e do some que retorna true ou false
         let novaLista = filmes.filter((filme) => filme.imdbID !== id)
+        
         setFilmes(novaLista)
+        
         localStorage.setItem("@filmes", JSON.stringify(novaLista))
     }
 
@@ -26,19 +30,21 @@ function Favoritos(){
         <div>
             <h1>Meus Filmes</h1>
 
-            {filmes.map((filme) =>{ 
-            return <div className="main" key={filme.imdbID}>
+            {filmes.map((filme) =>( 
+                <div className="main" >
                     <h4>{filme.Title}</h4>
 
-                    <Link to={`/filme/${filme.imdbID}`}>
-                        Ver detalhes
-                    </Link>
+                        <div className="buttons">
+                            <Link to={`/filme/${filme.imdbID}`}>
+                                Ver detalhes
+                            </Link>
 
-                    <button onClick={() => excluirFilme(filme.imdbID)}>
-                        Excluir
-                    </button>
+                            <button onClick={() => excluirFilme(filme.imdbID)}>
+                                Excluir
+                            </button>
+                        </div>
                 </div>
-            } )}
+            ))}
         </div>
     )
 }
