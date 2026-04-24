@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import "../style/main.css"
 
 function App(){
@@ -25,7 +26,7 @@ function App(){
                     {filme.Title}
                 </h2>
                 <img src={filme.Poster} alt="Imagem do filme/série" />
-                <button>Acessar</button>
+                <button><Link to={`/filme/${filme.imdbID}`}>Acessar</Link></button>
             </main>
             })}
         </div>
