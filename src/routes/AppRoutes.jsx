@@ -11,6 +11,7 @@ function AppRoutes(){
                 <Route path="/" element={ <App/> } />         
                 <Route path="/filme/:id"  element={ <Filme/> } />
                 <Route path="/favoritos" element={<Favoritos/>}/>
+                 <Route path="filme/favoritos" element={<Favoritos/>}/>
                 <Route path="*" element={<Erro/>} />
             </Routes>
         </BrowserRouter>

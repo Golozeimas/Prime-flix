@@ -4,8 +4,7 @@ function Header(){
         <header>
                 <h1>
                     Prime Flix
-                </h1>
-                
+                </h1>        
                 <button>
                    <a href="favoritos"> Meus filmes</a>
                 </button>

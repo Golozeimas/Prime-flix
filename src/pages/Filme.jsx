@@ -26,14 +26,17 @@ function Filme(){
 
         let lista_de_filmes = JSON.parse(filmes_salvos) || []
 
-        const ja_existe = lista_de_filmes.some((filme)=> filme == id)
+
+
+        const ja_existe = lista_de_filmes.some((f) => f.imdbID === filme.imdbID)
+
 
         if(ja_existe){
             alert("Já estar nos seus filmes!")
             return;
         }
 
-        lista_de_filmes.push(id)
+        lista_de_filmes.push(filme)
 
         localStorage.setItem("@filmes", JSON.stringify(lista_de_filmes))
 
