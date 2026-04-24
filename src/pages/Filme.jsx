@@ -16,13 +16,35 @@ function Filme(){
         .catch((err) => console.log(err))
     }, [id])
 
-    if(filme.lenght === 0){
+    if(filme.length === 0){
         return <h1>Carregando...</h1>
     }
 
     return(
         <div>
+            <header>
+                <h1></h1>
+            </header>
+            <main>
+                <img src="" alt="" />
+                
+                <h6></h6>
+                
+                <p></p>
+                
+                <strong>
+
+                </strong>    
+            </main>
             
+            <div>
+                <button>
+
+                </button>
+                <button>
+
+                </button>
+            </div>
         </div>
     )
 }
