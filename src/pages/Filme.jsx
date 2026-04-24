@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "../style/filme.css"
 
 function Filme(){
 
     
-    const {filme, setFilme} = useState({})
+    const [filme, setFilme]  = useState(null)
     const {id} = useParams()
 
 
@@ -16,33 +17,55 @@ function Filme(){
         .catch((err) => console.log(err))
     }, [id])
 
-    if(filme.length === 0){
+    if(!filme){
         return <h1>Carregando...</h1>
     }
 
+    function salvar(){
+        const filmes_salvos = localStorage.getItem("@filmes")
+
+        let lista_de_filmes = JSON.parse(filmes_salvos) || []
+
+        const ja_existe = lista_de_filmes.some((filme)=> filme == id)
+
+        if(ja_existe){
+            alert("Já estar nos seus filmes!")
+            return;
+        }
+
+        lista_de_filmes.push(id)
+
+        localStorage.setItem("@filmes", JSON.stringify(lista_de_filmes))
+
+        alert("Filme salvo com sucesso!")
+    
+    }
+
+    // O trailer não tenho na API
     return(
-        <div>
-            <header>
-                <h1></h1>
-            </header>
-            <main>
-                <img src="" alt="" />
+        <div className="Main">
+            <h2>{filme.Title}</h2>
+            <div className="Menu">
                 
-                <h6></h6>
+                <div className="imagem-filme">
+                    <img src={filme.Poster} alt="Imagem do filme" />
+                </div>
+
+                <h3>Sinopse</h3>
                 
-                <p></p>
-                
+                <p>{filme.Plot}</p>
+                <p>
                 <strong>
-
-                </strong>    
-            </main>
-            
-            <div>
-                <button>
-
+                    Avaliação: {filme.Ratings[0].Value}
+                </strong>
+                </p>    
+            </div>
+            <div className="Btn">
+                <button className="salvar" onClick={salvar}>
+                    Salvar
                 </button>
-                <button>
-
+                <button className="trailer">
+                    Trailer
                 </button>
             </div>
         </div>

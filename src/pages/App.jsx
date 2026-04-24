@@ -26,7 +26,7 @@ function App(){
                     {filme.Title}
                 </h2>
                 <img src={filme.Poster} alt="Imagem do filme/série" />
-                <button><Link to={`/filme/${filme.imdbID}`}>Acessar</Link></button>
+                <button><Link className="link" to={`/filme/${filme.imdbID}`}>Acessar</Link></button>
             </main>
             })}
         </div>

@@ -67,4 +67,9 @@ main button{
     cursor: pointer;
 }
 
+.link{
+    text-decoration: none;
+    color: black;
+}
+
 /* FIM DA MAIN*/

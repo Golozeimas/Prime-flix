@@ -1,0 +1,68 @@
+/*CORPO*/
+.Main{
+    width: 100%;
+    height: 100dvh;
+    padding-left: 22%;
+    padding-right: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Main h2{
+    font-size: 30px;
+    margin-top: 10px;
+}
+/*FIM CORPO*/
+
+.Menu p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Menu h3{
+    margin-top: 10px;
+}
+
+.Menu img{
+    margin-top: 10px;
+}
+
+.imagem-filme{
+    margin-top: 10px;
+    width: 100%;
+    background-color: black;
+    height: 88%;
+    justify-content: center;
+    display: flex;
+
+}
+
+/* BOTÕES*/
+.Btn button{
+    margin-right: 10px;
+    margin-top: 7%;
+    padding: 8px;
+    border: none;
+    background-color: #C0C0C0;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.salvar{
+     background-color: #C0C0C0;
+}
+.salvar:hover{
+    background-color: aquamarine;
+}
+
+.trailer{
+    background-color: #C0C0C0;
+}
+
+.trailer:hover{
+    background-color: red;
+}
+/*FIM BOTÕES*/
