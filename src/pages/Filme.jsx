@@ -2,10 +2,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../style/filme.css"
-
-function Filme(){
-
-    
+import { toast } from "react-toastify";
+function Filme(){ 
     const [filme, setFilme]  = useState(null)
     const {id} = useParams()
 
@@ -32,7 +30,16 @@ function Filme(){
 
 
         if(ja_existe){
-            alert("Já estar nos seus filmes!")
+            toast.warn('Já estar salvo!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
             return;
         }
 
@@ -40,7 +47,16 @@ function Filme(){
 
         localStorage.setItem("@filmes", JSON.stringify(lista_de_filmes))
 
-        alert("Filme salvo com sucesso!")
+        toast.success("Filme salvo com sucesso!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
     
     }
 

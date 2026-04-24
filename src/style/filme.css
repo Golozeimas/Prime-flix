@@ -64,6 +64,11 @@
 .trailer:hover{
     background-color: red;
 }
+
+.toast-container{
+    width: 300px;
+    height: 8px;
+}
 /*FIM BOTÕES*/
 
 /* INICIO - RESPONSIVIDADE*/
