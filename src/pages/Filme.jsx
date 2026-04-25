@@ -3,13 +3,17 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../style/filme.css"
 import { toast } from "react-toastify";
-function Filme(){ 
+function Filme(){
+
+    const API_URL = import.meta.env.VITE_API_URL
+    const API_KEY = import.meta.env.VITE_CHAVE
+
     const [filme, setFilme]  = useState(null)
     const {id} = useParams()
 
 
     useEffect(()=>{
-        fetch(`https://omdbapi.com/?i=${id}&apikey=a17992ac`)
+        fetch(`${API_URL}/?i=${id}&apikey=${API_KEY}`)
         .then((res)=> res.json())
         .then((json)=> setFilme(json))
         .catch((err) => console.log(err))

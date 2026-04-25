@@ -2,13 +2,17 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import "../style/main.css"
+import "../"
 
 function App(){
+    
+    const API_URL = import.meta.env.VITE_API_URL
+    const API_KEY = import.meta.env.VITE_CHAVE
     
     const [filmes, setFilmes] = useState([])
     
     useEffect(()=>{
-        fetch("https://omdbapi.com/?s=batman&apikey=a17992ac&page=1")
+        fetch(`${API_URL}/?s=Joker&apikey=${API_KEY}&page=1`)
         .then((res)=> res.json())
         .then((filme)=> setFilmes(filme.Search))
         .catch((err)=> console.log(err))
